@@ -1,0 +1,41 @@
+{% extends "AppCoder/base.html" %}
+
+{% block title %}
+La casa del Codígo | Profesores
+{% endblock  %}
+
+{% block content %}
+<section id="scroll">
+    <h1>Nuestros profesores</h1>
+    <p>los mejores de latinoamerica</p>
+    <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr class="table-dark">
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">e-mail</th>
+              <th scope="col">Profesion</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for profesor in profesor%}
+            <tr class="table-warning">
+              <td>{{ profesor.nombre }}</td>
+              <td>{{ profesor.apellido}}</td>
+              <td>{{ profesor.email}}</td>
+              <td>{{ profesor.profesion}}</td>
+              <td>
+                <a class="btn btn-danger" href="{% url 'profesor-eliminar' profesor.id %}">Eliminar</a>
+                <a class="btn btn-warning" href="{% url 'profesor-editar' profesor.id %}">Editar</a>
+              </td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+      </div>
+      <div class="container my-4">
+        <a class="btn btn-primary" href="{% url 'profesores-formulario' %}">Crear Profesor</a>
+      </div>
+{% endblock  %}

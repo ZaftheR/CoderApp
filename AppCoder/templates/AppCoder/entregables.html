@@ -1,0 +1,48 @@
+{% extends "AppCoder/base.html" %}
+{% load custom_filters %}
+
+{% block title %}
+La casa del Codígo | Entregables
+{% endblock  %}
+
+
+
+{% block content %}
+    <section id="scroll">
+        <h1>Nuestros Entregables</h1>
+        <p>Certificados avalados por las mejores empresas</p>
+        <h2 class="text-center mt-2">Buscar curso</h2>
+        <!-- Formulario de búsqueda -->
+            <div class="d-flex flex-column align-items-center mb-2">
+                <form action="" method="GET">
+                    <input type="text" name="q" placeholder="Buscar..." required>
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+            
+        <div class="container">
+            <table class="table table-striped">
+              <thead>
+                <tr class="table-dark">
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Fecha de Entrega</th>
+                  <th scope="col">Entregado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for entregable in entregable %}
+                <tr class="table-warning">
+                  <td>{{ entregable.nombre }}</td>
+                  <td>{{ entregable.fechaDeEntrega }}</td>
+                  <td>{{ entregable.entregado|boolean_to_text }}</td>
+                  <td>
+                    <a class="btn btn-danger" href="{% url 'entregable-eliminar' entregable.id %}">Eliminar</a>
+                    <a class="btn btn-warning" href="">Editar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+{% endblock %}

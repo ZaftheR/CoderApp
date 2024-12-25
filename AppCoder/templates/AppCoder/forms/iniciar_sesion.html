@@ -1,0 +1,27 @@
+{% extends "AppCoder/base.html" %}
+
+{% block title %}
+La Casa del Cdigo | Formularios Profesores
+{% endblock  %}
+
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+
+            <form action="" method="POST">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="text" name="usuario" placeholder="Ingrese el nombre de usuario">
+            <input type="password" name="contraseña" placeholder="Ingrese la contraseña">
+
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock  %}

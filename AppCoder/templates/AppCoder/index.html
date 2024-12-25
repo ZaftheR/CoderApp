@@ -1,0 +1,58 @@
+{% extends 'AppCoder/base.html' %}
+{% load static %}
+
+{% block title %}
+La casa del Codígo | Inicio
+{% endblock  %}
+
+{% block content %}
+            <!-- Content section 1-->
+            <section id="scroll">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'AppCoder/assets/img/01.jpg' %}" alt="..." /></div>
+                        </div>
+                        
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4">Desarrollo Web</h2>
+                                <p>El desarrollo web es el proceso de creación de sitios y aplicaciones web. Involucra tanto la programación del lado del cliente como del lado del servidor, utilizando lenguajes como HTML, CSS, JavaScript y frameworks como Django y React. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Content section 2-->
+            <section>
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6">
+                            <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'AppCoder/assets/img/02.jpg' %}" alt="..." /></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <h2 class="display-4">Inteligencia Artificial</h2>
+                                <p>La inteligencia artificial (IA) se centra en la creación de sistemas capaces de realizar tareas que normalmente requieren inteligencia humana. Utiliza algoritmos de aprendizaje automático y redes neuronales para procesar datos y tomar decisiones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Content section 3-->
+            <section>
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'AppCoder/assets/img/03.jpg' %}" alt="..." /></div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4">Programación de Videojuegos</h2>
+                                <p>La programación de videojuegos combina el arte y la tecnología para crear experiencias interactivas. Involucra el uso de motores de juegos como Unity y Unreal Engine, y lenguajes de programación como C# y C++.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+{% endblock %}

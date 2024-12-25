@@ -1,0 +1,18 @@
+{% extends "AppCoder/base.html" %}
+
+{% block title %}
+La casa del Codígo | Perfil de {{ user.username }}
+{% endblock  %}
+
+{% block content %}
+<section id="scroll">
+    <h1 class="text-center mt-4">Perfil de {{ user.username }}</h1>
+    <p class="text-center mt-4">Aca estan todos tus datos</p>
+    
+    <div class="container">
+        <p>Nombre: {{ user.first_name }}</p>
+        <p>Apellido: {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+    </div>
+
+{% endblock  %}

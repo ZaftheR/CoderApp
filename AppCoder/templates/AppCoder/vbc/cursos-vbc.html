@@ -1,0 +1,33 @@
+{% extends "AppCoder/base.html" %}
+
+{% block title %}
+La casa del Codígo | Cursos 
+{% endblock  %}
+
+{% block content %}
+    <h1>Nuestros cursos</h1>
+    <p>los mejores cursos con los mejore porfesores</p>
+
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr class="table-dark">
+            <th scope="col">Nombre</th>
+            <th scope="col">Comisión</th>
+            <th scope="col">Acciones</th>
+        </thead>
+        <tbody>
+          {% for cursos in cursos%}
+          <tr class="table-warning">
+            <td>{{ cursos.nombre }}</td>
+            <td>{{ cursos.comision}}</td>
+            <td>
+              <a class="btn btn-danger" href="">Eliminar</a>
+              <a class="btn btn-warning" href="">Editar</a>
+              </td>
+            </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+{% endblock  %}

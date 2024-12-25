@@ -1,0 +1,48 @@
+{% extends "AppCoder/base.html" %}
+
+{% block title %}
+La casa del Codígo | Cursos 
+{% endblock  %}
+
+{% block content %}
+    <h1>Nuestros cursos</h1>
+    <p>los mejores cursos con los mejore porfesores</p>
+
+    <h2 class="text-center mt-2">Buscar curso</h2>
+<!-- Formulario de búsqueda -->
+    <div class="d-flex flex-column align-items-center mb-2">
+        <form action="" method="GET">
+            <input type="text" name="q" placeholder="Buscar..." required>
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr class="table-dark">
+            <th scope="col">Nombre</th>
+            <th scope="col">Comisión</th>
+            <th scope="col">Acciones</th>
+        </thead>
+        <tbody>
+          {% for curso in cursos %}
+          <tr class="table-warning">
+            <td>{{ curso.nombre }}</td>
+            <td>{{ curso.comision }}</td>
+            {% if user.is_superuser %}
+            <td>
+              <a class="btn btn-danger" href='{% url "curso-eliminar" curso.id %}'>Eliminar</a>
+              <a class="btn btn-warning" href="">Editar</a>
+          </td>
+          {%else%}
+          <td class='d-flex justify-content-evenly'>
+          <p>No tienes los permisos requeridos</p>
+          </td>
+          {%endif%}
+            </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+{% endblock  %}

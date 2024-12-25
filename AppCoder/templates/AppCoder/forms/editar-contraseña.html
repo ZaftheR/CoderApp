@@ -1,0 +1,28 @@
+{% extends "AppCoder/base.html" %}
+
+{% block title %}
+La Casa del Cdigo | Editar Perfil
+{% endblock  %}
+
+
+{% block content %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h1 class="text-center mt-4">Cambiar contraseña</h1>
+            <p class="text-center fw-bold fst-italic">No olvidemos los datos importantes</p>
+
+            <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-around">
+            <button type="submit" class="btn btn-primary" href="{% url 'ver-perfil' %}" >Cambiar contraseña</button>
+            <a class="btn btn-secondary" href="{% url 'ver-perfil' %}" >Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock  %}
