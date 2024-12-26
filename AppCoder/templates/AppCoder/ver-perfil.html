@@ -13,6 +13,7 @@ La casa del Codígo | Perfil de {{ user.username }}
         <p>Nombre: {{ user.first_name }}</p>
         <p>Apellido: {{ user.last_name }}</p>
         <p>Email: {{ user.email }}</p>
+        <img src="{{ user.perfil.imagen.url }}" alt="Foto de perfil" class="img-fluid">
     </div>
 
 {% endblock  %}

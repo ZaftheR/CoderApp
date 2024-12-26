@@ -7,6 +7,14 @@ La Casa del Cdigo | Formularios Profesores
 
 {% block content %}
 
+{% if messages %}
+    {% for message in messages %}
+        <div class="d-flex justify-content-center alert alert-danger w-50 m-auto md-3" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
 <div class="container my-4">
     <div class="row justify-content-center">
         <div class="col-4">

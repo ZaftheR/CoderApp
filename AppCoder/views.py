@@ -5,10 +5,10 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm 
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
-
-from .models import Curso, Profesor, Entregable, Estudiante
-from .forms import CursoFormulario, EstudiantesFormulario, ProfesoresFormulario, EntregablesFormulario, UserUpdateForms
+from .models import Curso, Profesor, Entregable, Estudiante, Perfil
+from .forms import CursoFormulario, EstudiantesFormulario, ProfesoresFormulario, EntregablesFormulario, UserUpdateForms, UserProfileForms
 
 
 @login_required
@@ -18,14 +18,19 @@ def ver_perfil(request):
 @login_required
 def editar_perfil(request):
     
+    perfil, _ = Perfil.objects.get_or_create(usuario=request.user)
+    perfil_form = UserProfileForms(request.POST, request.FILES, instance=perfil)
+    
     if request.method == 'POST':
         form = UserUpdateForms(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
+            perfil_form.save()
             return redirect('ver-perfil') 
     else: 
         form = UserUpdateForms(instance=request.user)
-    return render(request, 'AppCoder/forms/editar-perfil.html', {"form":form}) #Es el renderizado para las templates de la seccion Perfil
+        perfil_form = UserProfileForms(instance=perfil)
+    return render(request, 'AppCoder/forms/editar-perfil.html', {"form":form ,"perfil_form":perfil_form}) #Es el renderizado para las templates de la seccion Perfil
 
 @login_required
 def editar_contraseña(request):
@@ -49,6 +54,7 @@ def iniciar_sesion(request):
         print(user)
         if user is not None:
             login(request, user)
+            messages.success(request, f'Bienvenido {usuario}')
             return redirect('inicio') # Redirige a la página de inicio o donde quieras 
         else: return render(request, 'AppCoder/forms/iniciar_sesion.html', {'error': 'Credenciales inválidas'})
     else:
@@ -56,6 +62,7 @@ def iniciar_sesion(request):
 
 def cerrar_sesion(request):
         logout(request)
+        messages.success(request, f'Sesión cerrada exitosamente')
         return redirect('iniciar-sesion')
 
 

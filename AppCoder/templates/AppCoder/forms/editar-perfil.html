@@ -13,9 +13,10 @@ La Casa del Cdigo | Editar Perfil
             <h1 class="text-center mt-4">Editar Perfil</h1>
             <p class="text-center fw-bold fst-italic">Aca podes editar tus datos</p>
 
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
+            {{ perfil_form.as_p }}
             <div class="d-flex justify-content-around">
             <button type="submit" class="btn btn-primary" href="{% url 'ver-perfil' %}" >Editar perfil</button>
             <a class="btn btn-secondary" href="{% url 'ver-perfil' %}" >Volver al inicio</a>

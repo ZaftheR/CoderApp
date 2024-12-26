@@ -53,8 +53,12 @@
                               PERFIL
                             </button>
                             <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href='{% url "enviar-mensaje" %}'>Enviar mensaje</a></li>
+                              <li><a class="dropdown-item" href='{% url "mostrar-mensaje" %}'>Bandeja de entrada</a></li>
+                              <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdown-item" href='{% url "ver-perfil" %}'>Ver perfil</a></li>
                               <li><a class="dropdown-item" href='{% url "editar-perfil" %}'>Editar perfil</a></li>
+                              <li><hr class="dropdown-divider"></li>
                               <li><a class="dropdown-item" href='{% url "editar-contraseña" %}'>Cambiar contraseña</a></li>
 
                             </ul>

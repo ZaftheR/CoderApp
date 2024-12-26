@@ -7,6 +7,20 @@ La casa del Codígo | Inicio
 
 {% block content %}
             <!-- Content section 1-->
+
+{%if messages %}
+    {% for message in messages %}
+        <div class="d-flex justify-content-center alert alert-success w-50 m-auto md-3" role="alert"><
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+
             <section id="scroll">
                 <div class="container px-5">
                     <div class="row gx-5 align-items-center">

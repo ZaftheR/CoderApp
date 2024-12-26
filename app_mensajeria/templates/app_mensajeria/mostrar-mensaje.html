@@ -1,0 +1,30 @@
+{% extends "AppCoder/base.html" %}
+
+{% block title %}
+La Casa del Cdigo | Bandeja de entrada
+{% endblock  %}
+
+
+{% block content %}
+
+    <h1 class="text-center mt-4">Bandeja de entrada</h1>
+    
+    {%for mensaje in mensajes %}
+        <div class="container my-4">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>De: {{ mensaje.remitente }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>{{ mensaje.contenido }}</p>
+                            <p>{{ mensaje.fecha_envio }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock  %} 
